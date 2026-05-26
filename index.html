@@ -597,16 +597,30 @@ nav {
 .service-icon {
   width: 56px;
   height: 56px;
-  object-fit: contain;
   border-radius: 12px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(233,30,140,0.12);
   padding: 10px;
-  filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(290deg);
-  transition: filter 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--magenta);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--magenta);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .service-card:hover .service-icon {
-  
+  background: rgba(233,30,140,0.22);
+  transform: scale(1.1);
 }
 
 .service-name {
@@ -824,9 +838,14 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center 15%;
   transition: transform 0.5s;
 }
+
+/* Per-person photo position overrides */
+.team-photo.photo-jayda  { object-position: center 8%; }
+.team-photo.photo-netta  { object-position: center 10%; }
+.team-photo.photo-ashley { object-position: center 12%; }
 
 .team-card:hover .team-photo { transform: scale(1.05); }
 
@@ -1199,13 +1218,23 @@ footer {
 
 .modal-service-icon {
   width: 64px; height: 64px;
-  object-fit: contain;
-  background: rgba(255,255,255,0.05);
+  background: rgba(233,30,140,0.12);
   border-radius: 14px;
   padding: 12px;
-  filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(290deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
 }
+.modal-service-icon svg {
+  width: 100%; height: 100%;
+  stroke: var(--magenta);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 
 .modal-title {
   font-family: var(--font-heading);
@@ -1303,7 +1332,7 @@ footer {
 <nav>
   <div class="nav-inner">
     <div class="nav-logo">
-      <img src="assets/images/logo.svg" alt="ODS Logo">
+      <img src="https://opendistrictsolutions.com/wp-content/uploads/2024/10/ODS_logo_fullcolor_shieldonly.svg" alt="ODS Logo">
       <div class="nav-logo-text">
         Open District Solutions
         <span>Executive Cybersecurity</span>
@@ -1403,42 +1432,60 @@ footer {
     <div class="services-grid">
 
       <div class="service-card fade-up" onclick="openModal('modal-s1')">
-        <img class="service-icon" src="assets/images/service-1.png" alt="Executive Cybersecurity Strategy">
+        <div class="service-icon">
+          <!-- Shield + strategy lines: Executive Cybersecurity Strategy -->
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
         <div class="service-name">Executive Cybersecurity Strategy</div>
         <div class="service-desc">Tailored cybersecurity strategies aligned with your risk landscape, from SOC buildouts to governance frameworks and resilience roadmaps.</div>
         <div class="service-more">Learn More →</div>
       </div>
 
       <div class="service-card fade-up" onclick="openModal('modal-s2')">
-        <img class="service-icon" src="assets/images/service-2.png" alt="Crisis Management Solutions">
+        <div class="service-icon">
+          <!-- Alert/siren: Crisis Management -->
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
         <div class="service-name">Crisis Management Solutions</div>
         <div class="service-desc">Full-spectrum crisis support across mitigation, preparedness, response, and recovery — including IR plans, tabletop exercises, and Incident Command.</div>
         <div class="service-more">Learn More →</div>
       </div>
 
       <div class="service-card fade-up" onclick="openModal('modal-s3')">
-        <img class="service-icon" src="assets/images/service-3.png" alt="Government Affairs">
+        <div class="service-icon">
+          <!-- Government/building: Gov Affairs -->
+          <svg viewBox="0 0 24 24"><path d="M3 22V9l9-7 9 7v13"/><path d="M9 22v-7h6v7"/><path d="M3 9h18"/></svg>
+        </div>
         <div class="service-name">Government Affairs & Business Development</div>
         <div class="service-desc">Strategic positioning in the SLTT and SLED sectors — aligning business strategies with government needs for critical sector success.</div>
         <div class="service-more">Learn More →</div>
       </div>
 
       <div class="service-card fade-up" onclick="openModal('modal-s4')">
-        <img class="service-icon" src="assets/images/service-4.png" alt="Workforce Development">
+        <div class="service-icon">
+          <!-- People/network: Workforce Development -->
+          <svg viewBox="0 0 24 24"><circle cx="17" cy="7" r="3"/><circle cx="7" cy="7" r="3"/><path d="M14 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
         <div class="service-name">Workforce Development & Partnerships</div>
         <div class="service-desc">Bridging the cybersecurity talent gap through partnerships with ranges, academia, and apprenticeship programs for sustainable pipeline growth.</div>
         <div class="service-more">Learn More →</div>
       </div>
 
       <div class="service-card fade-up" onclick="openModal('modal-s5')">
-        <img class="service-icon" src="assets/images/service-5.png" alt="Cybersecurity Assessments">
+        <div class="service-icon">
+          <!-- Magnifier/scan: Assessments -->
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
         <div class="service-name">Cybersecurity Assessments & Maturity</div>
         <div class="service-desc">Thorough assessments identifying vulnerabilities, architecture gaps, and GRC opportunities — with detailed maturity improvement roadmaps.</div>
         <div class="service-more">Learn More →</div>
       </div>
 
       <div class="service-card fade-up" onclick="openModal('modal-s6')">
-        <img class="service-icon" src="assets/images/service-6.png" alt="Cybersecurity Investment">
+        <div class="service-icon">
+          <!-- Layers/architecture: Investment & Architecture -->
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
         <div class="service-name">Cybersecurity Investment & Architecture</div>
         <div class="service-desc">Phased investment planning aligned to budget constraints, ensuring scalable and cost-effective security architectures that grow with your organization.</div>
         <div class="service-more">Learn More →</div>
@@ -1456,7 +1503,7 @@ footer {
     <div class="about-inner">
       <div class="about-visual">
         <div class="about-decoration">
-          <img class="about-shield" src="assets/images/logo.svg" alt="ODS Shield">
+          <img class="about-shield" src="https://opendistrictsolutions.com/wp-content/uploads/2024/10/ODS_logo_fullcolor_shieldonly.svg" alt="ODS Shield">
         </div>
         <div class="about-floater about-floater-1">
           <div class="floater-num">2015</div>
@@ -1512,7 +1559,7 @@ footer {
 
       <div class="team-card fade-up" onclick="openModal('modal-t1')">
         <div class="team-photo-wrap">
-          <img class="team-photo" src="assets/images/team-netta.png" alt="Netta Squires">
+          <img class="team-photo" src="https://opendistrictsolutions.com/wp-content/uploads/2025/03/2-2.png" alt="Netta Squires">
         </div>
         <div class="team-info">
           <div class="team-name">Netta Squires</div>
@@ -1524,7 +1571,7 @@ footer {
 
       <div class="team-card fade-up" onclick="openModal('modal-t2')">
         <div class="team-photo-wrap">
-          <img class="team-photo" src="assets/images/team-jayda.png" alt="Jayda Bonnick">
+          <img class="team-photo photo-jayda" src="https://opendistrictsolutions.com/wp-content/uploads/2026/02/Jayda-Bonnick-1.png" alt="Jayda Bonnick">
         </div>
         <div class="team-info">
           <div class="team-name">Jayda Bonnick</div>
@@ -1536,7 +1583,7 @@ footer {
 
       <div class="team-card fade-up" onclick="openModal('modal-t3')">
         <div class="team-photo-wrap">
-          <img class="team-photo" src="assets/images/team-ashley.png" alt="Ashley Sterbach-Benson">
+          <img class="team-photo" src="https://opendistrictsolutions.com/wp-content/uploads/2026/01/Ashley-Sterbach-Benson-Image.png" alt="Ashley Sterbach-Benson">
         </div>
         <div class="team-info">
           <div class="team-name">Ashley Sterbach-Benson</div>
@@ -1658,7 +1705,7 @@ footer {
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo">
-        <img src="assets/images/logo.svg" alt="ODS">
+        <img src="https://opendistrictsolutions.com/wp-content/uploads/2024/10/ODS_logo_fullcolor_shieldonly.svg" alt="ODS">
       </div>
       <div class="footer-copy">© 2024 Open District Solutions. Built by <a href="#">Y2K Group</a>.</div>
       <ul class="footer-links">
@@ -1677,7 +1724,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s1')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-1.png" alt="Executive Cybersecurity Strategy">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/><path d="M9 12l2 2 4-4"/></svg></div>
       <div class="modal-title">Executive Cybersecurity Strategy</div>
       <div class="modal-content">Our firm develops tailored cybersecurity strategies that align with your organization's specific needs, risk landscape, and operational goals. Whether building a Security Operations Center (SOC) from the ground up, enhancing governance practices, or strengthening cybersecurity maturity, our approach ensures a comprehensive and resilient solution. We create roadmaps that account for both strategic risk management and long-term growth, regulatory compliance, and operational resilience.</div>
     </div>
@@ -1688,7 +1735,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s2')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-2.png" alt="Crisis Management">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
       <div class="modal-title">Crisis Management Solutions</div>
       <div class="modal-content">Cybersecurity incidents represent significant crises, requiring coordination and structured responses. Open District Solutions takes a comprehensive view of crisis management, working across the phases of mitigation, preparedness, response, and recovery to provide full support during incidents.<br><br>Our services include the development of cybersecurity incident response and coordination plans tailored to specific operational environments. Our firm also designs training programs and facilitates tabletop exercises to ensure teams are prepared for any eventuality.<br><br>During incidents, our firm provides hands-on guidance by establishing and managing Incident Command to streamline coordination and decision-making. We assist with navigating legal and regulatory requirements, including reporting obligations and data retention, while ensuring that the response is managed at the appropriate operational tempo. Our team offers Public Relations (PR) support, helping organizations manage external communications and protect their reputation.</div>
     </div>
@@ -1699,7 +1746,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s3')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-3.png" alt="Government Affairs">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><path d="M3 22V9l9-7 9 7v13"/><path d="M9 22v-7h6v7"/><path d="M3 9h18"/></svg></div>
       <div class="modal-title">Government Affairs & Business Development</div>
       <div class="modal-content">Open District Solutions helps companies leverage strategic government affairs to enhance business development opportunities. Our firm identifies key opportunities in the SLTT and SLED sectors, aligning business strategies with government needs and positioning organizations for success in these critical areas.</div>
     </div>
@@ -1710,7 +1757,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s4')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-4.png" alt="Workforce Development">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><circle cx="17" cy="7" r="3"/><circle cx="7" cy="7" r="3"/><path d="M14 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
       <div class="modal-title">Workforce Development & Partnerships</div>
       <div class="modal-content">Solving workforce development challenges is essential in the cybersecurity space. Our firm partners with cybersecurity ranges, academia, and innovative apprenticeship programs to develop and implement solutions that bridge the talent gap. These programs connect organizations with emerging talent while also creating pathways for future growth and skills development.</div>
     </div>
@@ -1721,7 +1768,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s5')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-5.png" alt="Cybersecurity Assessments">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
       <div class="modal-title">Cybersecurity Assessments & Maturity Development</div>
       <div class="modal-content">Open District Solutions conducts thorough cybersecurity assessments to help organizations identify vulnerabilities and gaps. Our firm provides detailed roadmaps for improving cybersecurity posture, covering areas such as architecture reviews, governance, risk and compliance (GRC), and maturity assessments. A core part of these assessments is understanding and integrating risk management into your cybersecurity strategy.</div>
     </div>
@@ -1732,7 +1779,7 @@ footer {
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-s6')">✕</button>
     <div class="modal-body">
-      <img class="modal-service-icon" src="assets/images/service-6.png" alt="Cybersecurity Investment">
+      <div class="modal-service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
       <div class="modal-title">Cybersecurity Investment & Architecture</div>
       <div class="modal-content">Building a strong cybersecurity program is not just about tools or technology — it's about making strategic investments over time. Our firm works with organizations to develop phased investment plans that align security needs with budget constraints, ensuring scalable, cost-effective solutions. Our expertise in cybersecurity architecture ensures organizations are protected with robust, resilient security measures that evolve and mature over time.</div>
     </div>
@@ -1746,7 +1793,7 @@ footer {
     <button class="modal-close" onclick="closeModal('modal-t1')">✕</button>
     <div class="modal-body">
       <div class="modal-team-header">
-        <img class="modal-team-photo" src="assets/images/team-netta.png" alt="Netta Squires">
+        <img class="modal-team-photo" src="https://opendistrictsolutions.com/wp-content/uploads/2025/03/2-2.png" alt="Netta Squires">
         <div class="modal-team-meta">
           <div class="modal-team-name">Netta Squires</div>
           <div class="modal-team-role">President · Government Affairs · Cybersecurity & Resilience</div>
@@ -1762,7 +1809,7 @@ footer {
     <button class="modal-close" onclick="closeModal('modal-t2')">✕</button>
     <div class="modal-body">
       <div class="modal-team-header">
-        <img class="modal-team-photo" src="assets/images/team-jayda.png" alt="Jayda Bonnick">
+        <img class="modal-team-photo" src="https://opendistrictsolutions.com/wp-content/uploads/2026/02/Jayda-Bonnick-1.png" alt="Jayda Bonnick">
         <div class="modal-team-meta">
           <div class="modal-team-name">Jayda Bonnick</div>
           <div class="modal-team-role">Cybersecurity Strategy Analyst</div>
@@ -1778,7 +1825,7 @@ footer {
     <button class="modal-close" onclick="closeModal('modal-t3')">✕</button>
     <div class="modal-body">
       <div class="modal-team-header">
-        <img class="modal-team-photo" src="assets/images/team-ashley.png" alt="Ashley Sterbach-Benson">
+        <img class="modal-team-photo" src="https://opendistrictsolutions.com/wp-content/uploads/2026/01/Ashley-Sterbach-Benson-Image.png" alt="Ashley Sterbach-Benson">
         <div class="modal-team-meta">
           <div class="modal-team-name">Ashley Sterbach-Benson</div>
           <div class="modal-team-role">Cybersecurity Program Manager</div>
